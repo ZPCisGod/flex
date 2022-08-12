@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>flex 弹性盒子</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+      body {
+        margin: 0;
+        /* vh 是view height 既视窗高度的意思，100就是100%占满窗口高度 */
+        height: 100vh;
+        background-color: #eee;
+      }
+      /* * {
+        border: 1px solid #333;
+      } */
+      .flex {
+        display: flex;
+      }
+      /* 占满比例 */
+      .flex1 {
+        flex: 1;
+      }
+      /* 竖向 */
+      .column {
+        flex-direction: column;
+      }
+      /*从下往上*/
+      .reverse {
+        flex-direction: column-reverse;
+      }
+      /* 阴影 */
+      .yinYing {
+        box-shadow: rgb(0 0 0 / 20%) 0px 2px 1px -1px,
+          rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 20%) 0px 1px 3px 0px;
+      }
+      /* 白色背景 */
+      .baiSe {
+        background-color: #fff;
+      }
+      /* 上下左右外边距 */
+      .mg8 {
+        margin: 8px;
+      }
+      /* 右外边距 */
+      .mgr8 {
+        margin-right: 8px;
+      }
+      /* 上外边距 */
+      .mgt8 {
+        margin-top: 8px;
+      }
+      /* 四个小盒子 */
+      .shuJu {
+        height: 100px;
+      }
+      /* 中间的大盒子 */
+      .lieBiaoXiang {
+        height: 160px;
+      }
+      /* 导航条 */
+      .daoHang {
+        padding: 10px 20px;
+        border-bottom: 1px solid rgb(201, 201, 201);
+        font-size: 14px;
+        color: #666;
+      }
+      .neiRong::-webkit-scrollbar {
+        display: none; /* Chrome Safari */
+      }
+
+      /* 当屏幕宽度小于600px时要改变的css */
+      @media (max-width: 600px) {
+        /* 小屏幕上取消侧边栏，后面学js时会教怎么弹出 */
+        .ceBian {
+          display: none;
+        }
+        /* 内容栏和数据栏flex方向改为竖向 */
+        .neiRong {
+          flex-direction: column;
+        }
+        .shuJuQu {
+          flex-direction: column;
+        }
+        /* 右区加左外边距 */
+        .youQu {
+          margin-left: 8px;
+        }
+        /* 数据块外边距，大小改为自动宽高 */
+        .shuJu {
+          margin: 0 0 8px;
+          flex: auto;
+        }
+      }
+      .p {
+        text-align: center;
+      }
+      .img {
+        height: auto; width: auto\9; width:100%;
+      }
+    </style>
+</head>
+<body class="flex">
+    <div class="flex yinYing baiSe"
+    style="width: 200px;">
+
+    <div class="flex1 center p">
+      <div class="daoHang">1</div>
+      <div class="daoHang">2</div>
+      <div class="daoHang">3</div>
+      <div class="daoHang">4</div>
+      <div class="daoHang">5</div>
+      <div class="daoHang">6</div>
+      <div class="daoHang">7</div>
+    </div>
+  </div>
+
+    <div class="flex flex1 column">
+      <div style="height: 60px; z-index: 2" class="baiSe yinYing"></div>
+      <div class="flex flex1 neiRong" style="overflow: auto">
+        <div style="flex: 3" class="flex column mg8">
+          <div class="flex shuJuQu">
+            <div class="shuJu baiSe yinYing flex1 mgr8"></div>
+            <div class="shuJu baiSe yinYing flex1 mgr8"></div>
+            <div class="shuJu baiSe yinYing flex1 mgr8"></div>
+            <div class="shuJu baiSe yinYing flex1"></div>
+          </div>
+          <div class="flex column">
+            <div class="lieBiaoXiang mgt8 baiSe yinYing flex"
+              style="background-image: url(1234.png);">
+            </div>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing"></div>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing"></div>
+            <div class="lieBiaoXiang mgt8 baiSe yinYing"></div>
+          </div>
+        </div>
+        <div style="flex: 1" class="youQu yinYing mgr8 mgt8 column">
+          <div class="baiSe yinYing" style="height: 150px;"></div>
+          <div class="baiSe yinYing mgt8 flex" style="height: 400px;"></div>
+        </div>
+      </div>
+    </div>    
+</body>
+</html>
